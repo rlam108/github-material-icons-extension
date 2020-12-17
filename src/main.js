@@ -1,10 +1,14 @@
 runExtension();
 
 document.addEventListener('click', () => {
-  setTimeout(runExtension, 600)
-})
+  setTimeout(runExtension, 0);
+});
 
 function runExtension() {
+  console.log(document.readystatechange);
+  window.onload = function () {
+    console.log('loaded');
+  };
   // console.log(`loaded ${window.location.href}`);
   const jsonUrl = chrome.runtime.getURL('iconMap.json');
 
